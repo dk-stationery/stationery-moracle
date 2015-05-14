@@ -7,15 +7,15 @@
     <engine-settings>
         <defaults>
             <threading>
-                <listener-dispatch preserve-order="true"
+                <listener-dispatch preserve-order="false"
                                    timeout-msec="1000" locking="spin" />
                 <threadpool-inbound enabled="true" num-threads="200" />
-                <threadpool-outbound enabled="true" num-threads="200"
-                                     capacity="10000" />
+                <threadpool-outbound enabled="true" num-threads="100"
+                                     capacity="1000" />
                 <threadpool-timerexec enabled="true"
-                                      num-threads="200" />
+                                      num-threads="100" />
                 <threadpool-routeexec enabled="true"
-                                      num-threads="200" />
+                                      num-threads="100" />
             </threading>
         </defaults>
     </engine-settings>

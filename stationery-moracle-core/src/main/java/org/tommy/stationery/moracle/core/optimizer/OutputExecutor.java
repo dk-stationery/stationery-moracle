@@ -57,6 +57,7 @@ public class OutputExecutor implements UpdateListener {
     @Override
     public void update(EventBean[] newEvents, EventBean[] oldEvents) {
         if (newEvents != null) {
+            System.out.println("file size : " + newEvents.length);
             generateOutputFilePath();
 
             BufferedWriter out = null;
@@ -64,7 +65,9 @@ public class OutputExecutor implements UpdateListener {
                 String fileEncoding = config.getString(ConfigEnum.fileEncoding);
                 out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(getOutputFilePath(), false), fileEncoding));
             } catch (UnsupportedEncodingException e) {
+                System.out.println(e.getMessage());
             } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
             }
 
             //append header.
@@ -76,6 +79,7 @@ public class OutputExecutor implements UpdateListener {
                 out.write(header.substring(0, header.length() - 1));
                 out.newLine();
             } catch (IOException e) {
+                System.out.println(e.getMessage());
             }
 
             //append contents.
@@ -100,6 +104,7 @@ public class OutputExecutor implements UpdateListener {
 
             if (out != null) {
                 try {
+                    out.flush();
                     out.close();
                 } catch (IOException e) {
                 }

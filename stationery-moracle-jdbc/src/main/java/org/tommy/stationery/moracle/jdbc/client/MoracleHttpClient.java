@@ -11,10 +11,6 @@ import org.tommy.stationery.moracle.core.optimizer.Optimizer;
  */
 public class MoracleHttpClient  {
 
-    private static String API_SUB_PATH = "/sql/run";
-    private static String API_SQL_PARAM = "sql";
-    private static String API_SESSION_PARAM = "sessionId";
-
     private static final Logger logger = LoggerFactory.getLogger(MoracleHttpClient.class);
 
     private String url;
